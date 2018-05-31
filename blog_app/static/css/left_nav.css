@@ -1,0 +1,158 @@
+ /* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 3; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a, .dropdown {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    /*font-size: 15px !important;*/
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    width: 100%;  /*it was wrapping up */
+    text-align: left;
+    cursor: pointer;
+}
+.sidenav li {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover .offcanvas a:focus{
+    /*color: #f1f1f1;*/
+    color: yellow;
+
+}
+
+/* Position and style the close button (top right corner) */
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: -160px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    /*padding: 20px;*/
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+} 
+.nav_back {
+background-color: #0000001a;
+position: fixed;
+top: 1vh;
+left: 2vw;
+z-index: 2;
+color: white;
+border: 1px solid #8080801a;
+padding: 0px 10px;
+border-radius: 5px;
+}
+/*this is the menu inside the dropdown*/
+#mySidenav .dropdown-menu  {
+    /*display: block;*/
+    background-color: transparent;
+    position: relative;
+    /*position: absolute;*/
+
+}
+
+/*to make the li stretch the width of the ul*/
+#mySidenav ul {
+    padding: 0px;
+}
+#mySidenav li {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.nav > li > a {
+    /*position: relative;*/
+    /*display: block;*/
+    /*padding: 10px 15px;*/
+    font-family: 'Poppins',sans-serif;
+    /*background: #fafafa;*/
+    font-size: 15px;
+    font-weight: 400;
+    color: #999;
+}
+#mySidenav li:hover {
+    /*position: relative;*/
+    /*display: block;*/
+    padding: 10px 15px;
+    font-family: 'Poppins',sans-serif;
+    /*background: #EF6480;*/
+    background-color: #9999991a !important;
+    /*font-size: 15px;*/
+    font-weight: 400;
+    color: #999;
+}
+ #mySidenav a:hover {
+ 
+    /*font-family: 'Poppins',sans-serif;*/
+    /*background: #EF6480;*/
+    background-color: transparent !important;
+    /*font-size: 15px;*/
+    font-weight: 400;
+    color: #EF6480 !important;
+}
+/*this is for the hamburger when open*/
+#mySidenav .closebtn:hover, .closebtn:focus {
+    /*position: relative;*/
+    /*display: block;*/
+    /*padding: 10px 15px;*/
+    /*font-family: 'Poppins',sans-serif;*/
+    background: transparent !important;
+    /*font-size: 25px;*/
+    font-weight: 400;
+    color: #EF6480 !important;
+}
+.dropdown-submenu > .dropdown-menu {
+left: 5% !important;
+}
+a:focus {
+    outline: 0 !important;
+}
+/*so submenus don't overlap menus*/
+.dropdown-submenu > .dropdown-menu {
+left: 5% !important;
+    top: 0 !important;
+    /*left: 100%;*/
+    margin-top: 0px !important;
+    /*margin-left: -1px;*/
+    border-top-left-radius: 0 !important;
+
+}
+/*.dropdown-submenu li:hover {
+    padding-top: 0px !important;
+}*/
+.dropdown-menu ul:hover {
+margin-top: 10px !important;
+}
+/*outside glyphicon*/
+#outside .glyphicon.glyphicon-align-left {
+    color: #818181;
+}

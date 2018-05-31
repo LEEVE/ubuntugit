@@ -1,0 +1,45 @@
+{% load pages_tags mezzanine_tags i18n staticfiles %}
+    <!-- side hidden nav -->
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
+    <!-- &times; -->
+    <i class="glyphicon glyphicon-align-left" ></i>
+</a>
+<!--     <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a> -->
+    {% block navbar_dropdown_menu %}{% page_menu "pages/menus/dropdown.html" %}{% endblock%}
+</div>
+
+<span id="outside" class="nav_back" style="font-size:30px;cursor:pointer" onclick="openNav()">
+<!-- &#9776; -->
+<i class="glyphicon glyphicon-align-left"></i>
+ </span> <!-- to open left menu -->
+<div id="main" onclick="closeNav()">
+    
+
+	<!-- Header -->
+		<header id="landing_header" class="alt">
+			<!-- <span class="nav_back" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>  -->
+			<div class="inner">
+				<a href="/"><h1>Dataiq</h1></a>
+				<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDon't get left behind&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </p>
+				
+			</div>
+		</header>
+
+<script>
+document.getElementById("main").addEventListener('click', closeNav);
+
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+

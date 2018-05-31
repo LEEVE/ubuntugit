@@ -1,0 +1,101 @@
+a {
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+/* for recent posts both left and sidebar*/
+
+.w3-container h3 {
+    display: inline;
+    vertical-align: middle;
+}
+
+.w3-container.w3-padding {
+    text-align: center;
+}
+
+.filt_box-container {
+margin: 16px !important;
+/*border: 3px solid grey;*/
+box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12); 
+background-color: white;
+}
+
+.filt_title {
+    text-align: center;
+    background-color: #f1f1f1 !important;
+    color: #444444;
+}
+.filt_title h3 {
+    display: inline;
+    vertical-align: middle;
+    font-size: 1.25em;
+    line-height: 2.2;
+    text-transform: uppercase;
+    letter-spacing: 0.375rem;
+}
+.filt_title h4 {
+    font-size: 18px;
+}
+.new_section {
+    background-color: white;
+    padding: 8px 16px;
+    border-bottom: 1px solid #ddd;
+
+}
+#cat:hover {
+    background-color: #ddd;
+}
+.tag-cloud li{
+    color: #222;
+border: 1px solid #eee;
+padding: 10px;
+/*display: block;*/
+margin-bottom: 10px;
+font-weight: 400;
+background-color: #ddd;
+/*background-color: #f9f9ff;*/
+}
+
+/*=============== for blogs list small version==== page blog_post_list.html*/
+/*#blog_sum .editable-original {
+    padding: 0px 20px;
+}*/
+#blog_sum h6, h4 {
+    margin: 0px;
+    text-transform: none;
+    /*padding: 0px 10px;*/
+}
+#blog_sum p {
+    margin: 0px;
+}
+#blog_sum,.titl, h4 b {
+font-family: "Poppins",sans-serif !important;
+color: #222 !important;
+line-height: 1.2em !important;
+margin-bottom: 0 !important;
+margin-top: 0 !important;
+font-weight: 600 !important;
+letter-spacing: 0 !important;
+}
+#blog_sum,.categ, h6 {
+font-family: "Poppins",sans-serif !important;
+color: #777 !important;
+line-height: 1.42em !important;
+margin-bottom: 0 !important;
+margin-top: 0 !important;
+font-weight: 300 !important;
+letter-spacing: 0 !important;
+font-size: 14px !important;
+}
+#blog_sum {
+    padding: 10px;
+}
+#blog_sum .list-inline {
+    font-family: "Poppins",sans-serif !important;
+color: #777 !important;
+    margin-left: 0px !important;
+    font-weight: 300 !important;
+letter-spacing: 0 !important;
+font-size: 14px !important;
+}

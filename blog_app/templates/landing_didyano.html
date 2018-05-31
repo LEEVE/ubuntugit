@@ -1,0 +1,39 @@
+{% load pages_tags mezzanine_tags blog_tags i18n keyword_tags  disqus_tags staticfiles %}
+
+<!-- One -->
+<!-- <style type="text/css">body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}</style> -->
+
+	<section id="one" class="wrapper style2">
+		<div class="inner">
+			<div>
+				<div class="box">
+					{% block blog_recent_posts %}
+		            {% blog_recent_posts 1 as recent_posts %}
+		            	{% if recent_posts %}
+                			{% for recent_post in recent_posts %}
+                				<div class="image fit">
+                					{% if settings.BLOG_USE_FEATURED_IMAGE and recent_post.featured_image %}
+                                    <img src="{{ MEDIA_URL }}{% thumbnail recent_post.featured_image 100 100 %}" >
+                                        
+									{% else %}
+									<img src="{% static "images/didyano/pic01.jpg" %}" alt="" />
+									{% endif %}
+								</div>
+								<div class="content">
+
+									<header class="align-center">
+										<h2>{% trans "Recent Posts Yasha" %}</h2>
+										<h4>{{ recent_post.title }}</h4>
+									</header>
+									<hr />
+									<p>{{ recent_post.description|safe }}</p>
+									<!--  -->
+								</div>
+							{% endfor %}
+			           	{% endif %}
+			        {% endblock %}
+								
+				</div>
+			</div>
+		</div>
+	</section>

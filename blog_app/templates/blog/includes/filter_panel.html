@@ -1,0 +1,167 @@
+{% load blog_tags keyword_tags mezzanine_tags i18n %}
+<!-- sidebar RECENT POSTS w3.css for general and tilted_blogs.css for cosmetics -->
+<div class="w3-card w3-margin">
+    <!-- heading -->
+    <div class="w3-container w3-padding">
+        {% block blog_recent_posts %}
+        {% blog_recent_posts 7 as recent_posts %}
+        {% if recent_posts %}
+        <h3>{% trans "Recent Posts" %}</h3>
+    </div>
+
+    <!-- recent posts -->
+    {% for recent_post in recent_posts %}
+    <ul class="w3-ul w3-hoverable w3-white">
+    <li class="w3-padding-16" id="blog_sum">
+        {% spaceless %}
+            {% if settings.BLOG_USE_FEATURED_IMAGE and recent_post.featured_image %}
+            <img src="{{ MEDIA_URL }}{% thumbnail recent_post.featured_image 24 24 %}" width="50" height="50" class="w3-left w3-margin-right" >
+            {% endif %}
+            <a class="titl" href="{{ recent_post.get_absolute_url }}">{{ recent_post.title }}</a><br>
+            <span>Praes tinci sed</span>
+        {% endspaceless %}
+    </li>
+    <!-- <hr> -->
+
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endblock %}
+</div>
+
+<!-- sidebar ARCHIVED POSTS -->
+{% block blog_months %}
+{% blog_months as months %}
+{% if months %}
+<div class="filt_box-container">
+    <div  class="filt_title">
+        <h3>{% trans "Archive" %}</h3>
+    </div>
+    
+    {% for month in months %}
+        {% ifchanged month.date.year %}
+            {% if not forloop.first %}
+                <!-- </br>forloop -->
+                </div>
+                <!-- <hr> -->
+                {% endif %} 
+                <div class="new_section">
+                <h4>{{ month.date.year }}</h4>  
+        {% endifchanged %}          
+            
+        
+        <a href="{% url "blog_post_list_month" year=month.date.year month=month.date.month %}"
+                        >{{ month.date|date:"F" }} ({{ month.post_count }})</a>&nbsp&nbsp
+                        
+        
+        {% endfor %} 
+     </div>          
+</div>
+
+{% endif %}
+{% endblock %}
+
+<!-- sidebar CATEGORIES -->
+{% block blog_categories %}
+{% blog_categories as categories %}
+{% if categories %}
+<div class="filt_box-container">
+    <div  class="filt_title">
+        <h3>{% trans "Categories" %}</h3>
+    </div>
+
+    <ul class="list-unstyled">
+
+    {% for category in categories %}
+        <a href="{% url "blog_post_list_category" category.slug %}">
+            <div class="new_section" id="cat">
+            <li>{{ category }} ({{ category.post_count }})</li>
+            </div>
+        </a>
+    {% endfor %}
+    </ul>
+</div>
+
+{% endif %}
+{% endblock %}
+
+
+
+<!-- sidebar KEYWORDS TAGS -->
+<div class="w3-card w3-margin">
+    <!-- heading -->
+    <div class="w3-container w3-padding">
+        {% block blog_keywords %}
+        {% keywords_for blog.blogpost as tags %}
+        {% if tags %}
+            <h3>{% trans "Tags" %}</h3>
+    </div>
+
+     <div class="w3-container w3-white">    
+        <ul class="list-inline tag-cloud">
+        {% for tag in tags %}
+        <li>
+            <a href="{% url "blog_post_list_tag" tag.slug %}"
+                class="tag-weight-{{ tag.weight }}">{{ tag }}
+            ({{ tag.item_count }})</a>
+        </li>
+        {% endfor %}
+        </ul>
+    </div>
+        {% endif %}
+        {% endblock %}
+</div>
+
+<!-- ==========AUTHORS====== -->
+{% block blog_authors %}
+{% blog_authors as authors %}
+{% if authors %}
+<div class="w3-card w3-margin">
+    <!-- heading -->
+    <div class="w3-container w3-padding">
+        <h3>{% trans "Authors" %}</h3>
+    </div>
+    
+    <ul class="w3-ul w3-hoverable w3-white">
+    <!-- <li class="w3-padding-16"> -->
+<!-- <ul class="list-unstyled"> -->
+    {% for author in authors %}
+    <li><a href="{% url "blog_post_list_author" author.username %}"
+        >{{ author.get_full_name|default:author.username }}
+        ({{ author.post_count }})</a></li>
+    {% endfor %}
+    </ul>
+</div>
+{% endif %}
+{% endblock %}
+
+
+
+
+{% block blog_feeds %}
+<div class="filt_box-container">
+    <div  class="filt_title">
+    <h3>{% trans "Feeds" %}</h3>
+    </div>
+    <!-- div class="w3-card w3-margin"> -->
+{% if tag %}
+    <a href="{% url "blog_post_feed_tag" tag.slug "rss" %}">{% trans "RSS" %}</a> /
+    <a href="{% url "blog_post_feed_tag" tag.slug "atom" %}">{% trans "Atom" %}</a>
+{% endif %}
+{% if category %}
+    <a href="{% url "blog_post_feed_category" category.slug "rss" %}">{% trans "RSS" %}</a> /
+    <a href="{% url "blog_post_feed_category" category.slug "atom" %}">{% trans "Atom" %}</a>
+
+{% endif %}
+{% if author %}
+    <a href="{% url "blog_post_feed_author" author.username "rss" %}">{% trans "RSS" %}</a> /
+    <a href="{% url "blog_post_feed_author" author.username "atom" %}">{% trans "Atom" %}</a>
+{% endif %}
+{% if not tag and not category and not author %}
+    <a href="{% url "blog_post_feed" "rss" %}">{% trans "RSS" %}</a> /
+    <a href="{% url "blog_post_feed" "atom" %}">{% trans "Atom" %}</a>
+
+{% endif %}
+   
+</div>
+{% endblock %}
