@@ -10,7 +10,7 @@ Django==1.8
 django-appconf==1.0.2
 django-compressor==2.2
 django-contrib-comments==1.8.0
-ecdsa==0.13
+ecdsa==0.13.3
 enum34==1.1.6
 Fabric==1.14.0
 filebrowser-safe==0.4.7
