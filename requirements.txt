@@ -22,7 +22,7 @@ invoke==1.0.0
 ipaddress==1.0.22
 Mezzanine==4.2.3
 oauthlib==2.1.0
-paramiko==2.4.1
+paramiko==2.10.1
 Pillow==5.1.0
 pyasn1==0.4.3
 pycparser==2.18
